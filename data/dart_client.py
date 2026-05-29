@@ -72,7 +72,7 @@ ACCOUNT_MAP: dict[str, list[str]] = {
     "gross_profit": ["매출총이익"],
     "operating_income": ["영업이익", "영업이익(손실)"],
     "pretax_income": ["법인세비용차감전순이익", "법인세비용차감전순이익(손실)", "법인세차감전순이익"],
-    "tax_expense": ["법인세비용"],
+    "tax_expense": ["법인세비용", "법인세비용(수익)", "법인세비용(이익)", "법인세수익"],
     "receivables": ["매출채권", "매출채권및기타채권", "매출채권및기타유동채권"],
     "inventory": ["재고자산"],
     "accounts_payable": ["매입채무", "매입채무및기타채무", "매입채무및기타유동채무"],
