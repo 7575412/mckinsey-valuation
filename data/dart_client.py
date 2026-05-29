@@ -67,7 +67,9 @@ def get_corp_code(stock_code: str) -> str:
 # Maps engine fields → candidate DART account names (first match wins).
 # DART account names vary by filer; list synonyms most-specific first.
 ACCOUNT_MAP: dict[str, list[str]] = {
-    "revenue": ["매출액", "수익(매출액)", "영업수익"],
+    "revenue": ["매출액", "수익(매출액)", "매출", "영업수익", "매출및지분법손익"],
+    "cogs": ["매출원가"],
+    "gross_profit": ["매출총이익"],
     "operating_income": ["영업이익", "영업이익(손실)"],
     "pretax_income": ["법인세비용차감전순이익", "법인세비용차감전순이익(손실)", "법인세차감전순이익"],
     "tax_expense": ["법인세비용"],
@@ -177,9 +179,15 @@ def fetch_raw_financials(
     )
     shares = _fetch_shares(corp_code, year)
 
+    # Many filers omit a literal 매출액 line; fall back to the accounting
+    # identity 매출액 = 매출원가 + 매출총이익 when both are present.
+    revenue = _pick(idx, "revenue")
+    if revenue == 0:
+        revenue = _pick(idx, "cogs") + _pick(idx, "gross_profit")
+
     return RawFinancials(
         year=year,
-        revenue=_pick(idx, "revenue"),
+        revenue=revenue,
         operating_income=_pick(idx, "operating_income"),
         pretax_income=_pick(idx, "pretax_income"),
         tax_expense=_pick(idx, "tax_expense"),
