@@ -1,0 +1,12 @@
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pydantic>=2.7
+pandas>=2.2
+numpy>=1.26
+scipy>=1.13
+requests>=2.31
+python-dotenv>=1.0
+pytest>=8.0
+# Optional — PDF + LLM extraction (Phase 5)
+anthropic>=0.92
+pypdf>=4.0

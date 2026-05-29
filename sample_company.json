@@ -1,0 +1,18 @@
+{
+  "year": 2024,
+  "revenue": 3000000,
+  "operating_income": 600000,
+  "pretax_income": 580000,
+  "tax_expense": 130000,
+  "receivables": 400000,
+  "inventory": 350000,
+  "operating_cash": 0,
+  "accounts_payable": 250000,
+  "accrued_liabilities": 100000,
+  "net_ppe": 1200000,
+  "net_operating_intangibles": 200000,
+  "total_debt": 500000,
+  "non_operating_assets": 600000,
+  "equity": 2400000,
+  "shares_outstanding": 100000
+}
