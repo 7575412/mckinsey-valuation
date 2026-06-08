@@ -62,8 +62,9 @@ curl -s -X POST http://localhost:8123/valuation -H "Content-Type: application/js
   | python -c "import sys,json; r=json.load(sys.stdin); print('target_price', round(r['result']['target_price'],2), '| upside', round(r['upside'],3), '| value_trap', r['result']['value_trap']); print(r['rationale'][0])"
 ```
 
-Expected (price 30, growth 0.06, β default): `target_price ≈ 62.3`, `upside ≈
-+1.08`, `value_trap False`, and a clean Korean rationale line. Endpoints:
+Expected (price 30, growth 0.06, β default 1.0 → WACC 8.70%): `target_price ≈
+66.3`, `upside ≈ +1.21`, `value_trap False`, and a clean Korean rationale line.
+Endpoints:
 `GET /health`, `POST /valuation`, `GET /valuation/{ticker}` (needs
 `DART_API_KEY`), `POST /valuation/from-pdf` (needs `ANTHROPIC_API_KEY`),
 `POST /sensitivity`.
