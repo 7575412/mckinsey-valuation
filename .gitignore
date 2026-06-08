@@ -9,4 +9,5 @@ venv/
 .cache/
 node_modules/
 web/dist/
+web/ui-screenshot.png
 .DS_Store
